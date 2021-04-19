@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import logo from '../images/logo.svg'
-export default function Navbar() {
-    return (
-        <div>
-            <img src={logo} alt="logo"/>
-        </div>
-    )
+import {FaAlignRight} from 'react-icons/fa'
+
+class Navbar extends Component {
+    state={
+        isOpen:false
+    }
+   handleToggle=()=>{
+        this.setState({isOpen:!this.state.isOpen})
+    }
+    render() {
+        return (
+                <nav className="navbar">
+                    <div className="nav-center">
+                        <div className="nav-header">
+                            <Link to='/'>
+                                <img src={logo} alt="logo"/>
+                            </Link>
+                            <button onClick={this.handleToggle} className="nav-btn">
+                                <FaAlignRight className='nav-icon'/>
+                            </button>
+                        </div>
+                        <ul className={`nav-links ${this.state.isOpen&&'show-nav'}`}>
+                            <li>
+                                <Link to='/' >Home</Link>
+                            </li>
+                            <li>
+                                <Link to='/rooms' >Rooms</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+        );
+    }
 }
+
+export default Navbar;

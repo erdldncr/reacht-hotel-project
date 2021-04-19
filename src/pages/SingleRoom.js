@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import Hero from '../components/Hero'
 
 export default class SingleRoom extends Component {
     
     render() {
-        console.log(this.props)
+        
         return (
-            <div>
-                SingleRoom Page
-            </div>
+           <Hero>
+
+           </Hero>
         )
     }
 }
