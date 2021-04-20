@@ -1,4 +1,4 @@
-import {Error} from './pages/Error'
+import Error from './pages/Error'
 import {Home} from './pages/Home'
 import {Rooms} from './pages/Rooms'
 import SingleRoom from './pages/SingleRoom'
@@ -17,7 +17,7 @@ function App() {
         <Route path='/rooms' exact  >
              <Rooms/>
         </Route>
-        <Route path='/rooms/:id' exact  render={(props)=>{
+        <Route path='/rooms/:slug' exact  render={(props)=>{
          return <SingleRoom
             {...props}
           />
