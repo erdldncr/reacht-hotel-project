@@ -1,11 +1,20 @@
 import React from 'react'
 import RoomFilter from './RoomFilter'
 import RoomsList from './RoomsList'
-export default function RoomsContainer() {
-    return (
-        <div>
-            <RoomFilter/>
-            <RoomsList/>
-        </div>
-    )
+import {withRoomConsumer} from '../context'
+import Loading from './Loading'
+
+
+ function RoomsContainer({context}) {
+
+const {loading}=context
+
+return (
+    <>
+        {loading&&<Loading/>}
+        <RoomFilter/>
+        <RoomsList/>
+    </>
+)
 }
+export default withRoomConsumer(RoomsContainer)

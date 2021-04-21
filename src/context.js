@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component,useContext } from 'react';
 import items from './data'
 const RoomContext=React.createContext()
 class RoomProvider extends Component {
     
     state={
         rooms:[],
-        sorteedRooms:[],
+        sortedRooms:[],
         featuredRooms:[],
         loading:true
     }
@@ -31,6 +31,7 @@ class RoomProvider extends Component {
        
         return this.state.rooms.find(room=>room.slug===slug)
     }
+    
 
     render() {
         
@@ -45,7 +46,16 @@ class RoomProvider extends Component {
 }
 const RoomConsumer=RoomContext.Consumer
 
+export function withRoomConsumer(Component){
+    return function ConsumerWrapper(props){
+     return   <RoomConsumer>
+                {value=><Component {...props} context={value}/>}
+            </RoomConsumer>
+    }
+}
 export  {RoomProvider,RoomContext,RoomConsumer}
 
-
+export function useGlobalContext(){
+    return useContext(RoomContext)
+}
 
