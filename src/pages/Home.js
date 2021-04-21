@@ -19,7 +19,7 @@ export const Home = () => {
                 </Hero>
                 <Services/>
                 <FeaturedRooms/>
-
+              
 
             </React.Fragment>
     )
