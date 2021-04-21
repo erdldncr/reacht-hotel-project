@@ -12,7 +12,7 @@ class FeaturedRooms extends Component {
             <section className='featured-rooms'>
                 <Title title='featured rooms'/>
                 <div className="featured-rooms-center">
-                {Loading&&<Loading/>}
+                    {Loading&&<Loading/>}
               {rooms.map(room=> <Room key={room.id} {...room} /> )}
                 </div>
                 
